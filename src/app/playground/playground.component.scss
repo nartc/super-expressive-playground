@@ -1,0 +1,9 @@
+:host {
+  @apply block h-screen w-screen overflow-hidden;
+}
+
+:host ::ng-deep {
+  .super-expressive-editor {
+    @apply h-full;
+  }
+}

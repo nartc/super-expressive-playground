@@ -10,7 +10,6 @@ import { NotFoundComponent } from "./common/components/not-found/not-found.compo
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [BrowserModule, ScullyLibModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

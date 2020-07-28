@@ -24,11 +24,12 @@ h6 {
 
 /*! purgecss start ignore */
 :root {
-  --primary: theme("colors.blue.400");
-  --secondary: theme("colors.orange.500");
-  --background-color: theme("colors.gray.100");
-  --text-color: theme("colors.gray.900");
+  --primary: theme("colors.yellow.400");
+  --secondary: theme("colors.purple.400");
+  --background-color: theme("colors.gray.800");
+  --text-color: theme("colors.white");
   --shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
     0 4px 6px -2px rgba(255, 255, 255, 0.05);
 }
+
 /*! purgecss end ignore */
