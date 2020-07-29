@@ -32,6 +32,15 @@ module.exports = {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
       },
+      gridRow: {
+        "span-11": "span 11 / span 11",
+      },
+      gridTemplateRows: {
+        "12": "repeat(12, minmax(0, 1fr))",
+      },
+      zIndex: {
+        "-1": "-1",
+      },
     },
   },
 };

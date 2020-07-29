@@ -1,34 +1,38 @@
 h1 {
-  @apply text-5xl;
+    @apply text-5xl;
 }
 
 h2 {
-  @apply text-4xl;
+    @apply text-4xl;
 }
 
 h3 {
-  @apply text-3xl;
+    @apply text-3xl;
 }
 
 h4 {
-  @apply text-2xl;
+    @apply text-2xl;
 }
 
 h5 {
-  @apply text-xl;
+    @apply text-xl;
 }
 
 h6 {
-  @apply text-lg;
+    @apply text-lg;
+}
+
+mark {
+    @apply bg-secondary text-gray-100;
 }
 
 /*! purgecss start ignore */
 :root {
-  --primary: theme("colors.yellow.400");
-  --secondary: theme("colors.purple.400");
-  --background-color: theme("colors.gray.800");
-  --text-color: theme("colors.white");
-  --shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
+    --primary: theme("colors.yellow.400");
+    --secondary: theme("colors.purple.400");
+    --background-color: theme("colors.gray.800");
+    --text-color: theme("colors.white");
+    --shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1),
     0 4px 6px -2px rgba(255, 255, 255, 0.05);
 }
 

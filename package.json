@@ -11,6 +11,9 @@
     "scully": "scully",
     "scully:serve": "scully serve"
   },
+  "prettier": {
+    "htmlWhitespaceSensitivity": "ignore"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "10.0.5",

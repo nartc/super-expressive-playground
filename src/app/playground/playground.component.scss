@@ -5,5 +5,12 @@
 :host ::ng-deep {
   .super-expressive-editor {
     @apply h-full;
+    .editor-container {
+      @apply h-full;
+    }
   }
+}
+
+.highlights {
+  word-wrap: break-word;
 }
