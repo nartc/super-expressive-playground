@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   NgZone,
+  OnDestroy,
   OnInit,
 } from "@angular/core";
 import { RegexOutputService } from "../services/regex-output.service";
@@ -20,7 +21,6 @@ import { RegexOutputService } from "../services/regex-output.service";
         <section class="col-auto lg:col-span-2">
           <app-playground-editor
             [editorInit]="editor != null"
-            (execute)="onExecute()"
             (init)="onEditorInit($event)"
           ></app-playground-editor>
         </section>
@@ -37,9 +37,10 @@ import { RegexOutputService } from "../services/regex-output.service";
   styleUrls: ["./playground.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PlaygroundComponent implements OnInit {
+export class PlaygroundComponent implements OnInit, OnDestroy {
   editor: monaco.editor.IStandaloneCodeEditor;
   output$ = this.regexOutputService.output$;
+  private executeAction: monaco.IDisposable;
 
   constructor(
     private readonly regexOutputService: RegexOutputService,
@@ -81,6 +82,17 @@ export class PlaygroundComponent implements OnInit {
     this.ngZone.run(() => {
       this.editor = editor;
       this.editor.setValue("SuperExpressive()");
+      this.executeAction = this.editor.addAction({
+        id: "execute",
+        label: "Execute",
+        keybindings: [
+          monaco.KeyMod.WinCtrl | monaco.KeyCode.Enter,
+          monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+        ],
+        contextMenuGroupId: "1_modification",
+        contextMenuOrder: 1,
+        run: this.onExecute.bind(this),
+      });
     });
   }
 
@@ -93,5 +105,9 @@ export class PlaygroundComponent implements OnInit {
       .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "")
       .replace(/\n/g, "")
       .trim();
+  }
+
+  ngOnDestroy(): void {
+    this.executeAction?.dispose();
   }
 }

@@ -21,7 +21,11 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       </li>
       <li class="mt-2">
         Press
-        <code>Ctrl + ⏎</code>
+        <code class="text-sm">[Ctrl + ⏎]</code>
+        (Windows)/
+        <code class="text-sm">[⌘ + ⏎]</code>
+        (MacOS) or
+        <code class="text-sm">Right-click > Execute</code>
         to generate
         <strong>Regular Expression</strong>
       </li>
