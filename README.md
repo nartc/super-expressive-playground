@@ -1,27 +1,67 @@
-# SuperExpressivePlayground
+# SuperExpressive Playground
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+This is the playground for [SuperExpressive Library](https://github.com/francisrstokes/super-expressive).
 
-## Development server
+## Feature
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Use the code editor to write **Regular Expression** using **SuperExpressive API**
+- Test the generated RegExp
 
-## Code scaffolding
+- [ ] Mobile friendly
+- [ ] ...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies
 
-## Build
+- [Angular](https://angular.io)
+- [Scully](https://scully.io)
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/)
+- [NgxMonacoEditor](https://github.com/atularen/ngx-monaco-editor)
+- [TailwindCSS](https://tailwindcss.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Challenges
 
-## Running unit tests
+There are a couple of challenges that I ran into while working on this project.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Monaco Editor
 
-## Running end-to-end tests
+Monaco is a powerful library, but it's also very complex. The way it's loaded is pretty tricky. However, the integration is quite smooth using `ngx-monaco-editor`. It was quite satisfied when I was able to load extra library type definitions (for SuperExpressive intellisense) into the Monaco instance
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Executing the value of the editor
 
-## Further help
+This is one tricky task as `eval()` is considered bad practice. So, I use `new Function()` instead. Also, I need to execute a snippet like:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```ts
+SuperExpressive().anyChar.toRegex();
+```
+
+which will execute `SuperExpressive()` which is a 3rd-party API. Hence, in order for me to execute that, I need to assign `SuperExpressive` onto the `window` object.
+
+```ts
+import SuperExpressive from 'super-expressive';
+
+window.SuperExpressive = SuperExpressive;
+```
+
+Furthermore, I only want to execute a single-invoke of `SuperExpressive()` at a time, so I need to trim the editor's value.
+
+#### Scully and Monaco
+
+Scully **will not** work with Monaco as is because Scully will generate the `html` from the Angular build bundle and in turns will inject several `<script>` tags that were used to load Monaco. With multiple `<script>` tags with the same value (because Scully generates multiple `html` for multiple routes), Monaco complains that it's already been loaded.
+
+To resolve that, I write a quick plugin to remove Monaco related `<script>` from the generated `html` by Scully.
+
+```ts
+function removeMonacoScriptPluginHandler(html: string) {
+  return Promise.resolve(
+    html.replace(/<script.+(?:tsMode\.js|typescript\.js)"><\/script>/g, "")
+  );
+}
+``` 
+
+#### Mobile Responsiveness
+
+Again, because of how Monaco is loaded and rendered, it's tricky to get Mobile Responsiveness right which I haven't paid too much attention to for the first iteration.
+
+## Contribution
+
+Any contribution is welcome
