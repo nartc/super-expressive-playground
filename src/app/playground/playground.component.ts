@@ -70,7 +70,7 @@ export class PlaygroundComponent implements OnInit, OnDestroy {
     const regexFn = new Function(`return ${trimmedValue}`);
     try {
       const output = regexFn();
-      console.log(trimmedValue, output);
+      console.log("[Debug Editor Value] -->", trimmedValue, output);
       this.regexOutputService.setOutput(output);
     } catch (e) {
       console.log("there is an error", e);
@@ -91,7 +91,9 @@ export class PlaygroundComponent implements OnInit, OnDestroy {
         ],
         contextMenuGroupId: "1_modification",
         contextMenuOrder: 1,
-        run: this.onExecute.bind(this),
+        run: () => {
+          this.ngZone.run(this.onExecute.bind(this));
+        },
       });
     });
   }
