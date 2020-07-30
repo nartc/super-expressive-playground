@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class RegexOutputService {
-  private readonly $output = new BehaviorSubject("");
+  private readonly $output = new BehaviorSubject<RegExp | string>("");
   output$ = this.$output.asObservable();
 
   setOutput(output: string): void {

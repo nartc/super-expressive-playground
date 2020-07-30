@@ -1,16 +1,5 @@
+/*! purgecss start ignore */
 :host {
   @apply block h-screen w-screen overflow-hidden;
 }
-
-:host ::ng-deep {
-  .super-expressive-editor {
-    @apply h-full;
-    .editor-container {
-      @apply h-full;
-    }
-  }
-}
-
-.highlights {
-  word-wrap: break-word;
-}
+/*! purgecss end ignore */

@@ -1,0 +1,11 @@
+/*! purgecss start ignore */
+:host ::ng-deep {
+  .super-expressive-editor {
+    @apply h-full;
+    .editor-container {
+      @apply h-full;
+    }
+  }
+}
+
+/*! purgecss end ignore */
