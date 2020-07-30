@@ -18,6 +18,10 @@ module.exports = {
       inset: {
         "1": "1rem",
         "2": "1.5rem",
+        "1/2": "50%",
+      },
+      translate: {
+        "1/2": "50%",
       },
       spacing: {
         "2-rev": `-${spacing["2"]}`,
