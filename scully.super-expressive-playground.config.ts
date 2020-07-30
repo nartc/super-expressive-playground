@@ -1,4 +1,6 @@
 import { registerPlugin, ScullyConfig } from "@scullyio/scully";
+import { getHttp404Plugin } from "@gammastream/scully-plugin-http404";
+import { MinifyHtml } from "scully-plugin-minify-html";
 
 function removeMonacoScriptPluginHandler(html: string) {
   return Promise.resolve(
@@ -13,5 +15,5 @@ export const config: ScullyConfig = {
   projectName: "super-expressive-playground",
   outDir: "./dist/static",
   routes: {},
-  defaultPostRenderers: ["RemoveMonacoScript"],
+  defaultPostRenderers: ["RemoveMonacoScript", MinifyHtml, getHttp404Plugin()],
 };
