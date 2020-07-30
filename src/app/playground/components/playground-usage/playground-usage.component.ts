@@ -17,6 +17,9 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
         <strong>Regular Expression</strong>
       </li>
       <li class="mt-2">
+        Hover over a property/method to see its documentations
+      </li>
+      <li class="mt-2">
         Press
         <code>Ctrl + ⏎</code>
         to generate
