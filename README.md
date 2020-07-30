@@ -53,7 +53,10 @@ To resolve that, I write a quick plugin to remove Monaco related `<script>` from
 ```ts
 function removeMonacoScriptPluginHandler(html: string) {
   return Promise.resolve(
-    html.replace(/<script.+(?:tsMode\.js|typescript\.js)"><\/script>/g, "")
+    html
+      .replace(/<script.+(?:editor\.main(?:\.nls)\.js)"><\/script>/g, "") // remove duplicate loader
+      .replace(/<script.+(?:tsMode\.js|typescript\.js)"><\/script>/g, "") // remove duplicate loader
+      .replace(/<ngx-monaco-editor.+><\/ngx-monaco-editor>/g, "") // remove flickering
   );
 }
 ``` 

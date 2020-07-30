@@ -27,7 +27,6 @@ import { RegexOutputService } from "../services/regex-output.service";
         <section class="col-auto lg:col-span-2">
           <app-playground-result
             [output]="output$ | async"
-            (scroll)="onTextareaScroll($event)"
           ></app-playground-result>
         </section>
       </div>
@@ -96,10 +95,6 @@ export class PlaygroundComponent implements OnInit, OnDestroy {
         },
       });
     });
-  }
-
-  onTextareaScroll(event: Event) {
-    console.log("Scroll textarea: to be implemented");
   }
 
   private static trimComments(raw: string): string {

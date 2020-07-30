@@ -36,6 +36,8 @@ export class HighlightDirective implements OnDestroy {
         regexOutput,
         "<mark>$&</mark>"
       );
+    } else {
+      this.el.nativeElement.innerHTML = null;
     }
   }
 
