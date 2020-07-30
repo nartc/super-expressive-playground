@@ -4,7 +4,10 @@ import { MinifyHtml } from "scully-plugin-minify-html";
 
 function removeMonacoScriptPluginHandler(html: string) {
   return Promise.resolve(
-    html.replace(/<script.+(?:tsMode\.js|typescript\.js)"><\/script>/g, "")
+    html
+      .replace(/<script.+(?:editor\.main(?:\.nls)\.js)"><\/script>/g, "")
+      .replace(/<script.+(?:tsMode\.js|typescript\.js)"><\/script>/g, "")
+      .replace(/<ngx-monaco-editor.+><\/ngx-monaco-editor>/g, "")
   );
 }
 

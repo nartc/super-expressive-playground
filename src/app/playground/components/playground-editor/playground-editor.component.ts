@@ -48,5 +48,6 @@ export class PlaygroundEditorComponent {
   editorOptions: monaco.editor.IStandaloneEditorConstructionOptions = {
     theme: "vs-dark",
     language: "typescript",
+    fontSize: 16,
   };
 }
