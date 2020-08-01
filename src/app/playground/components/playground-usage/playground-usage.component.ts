@@ -10,6 +10,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
           class="text-primary hover:underline"
           href="https://github.com/francisrstokes/super-expressive"
           target="_blank"
+          rel="noopener"
         >
           SuperExpressive API
         </a>
