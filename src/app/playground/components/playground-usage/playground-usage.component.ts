@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 @Component({
   selector: "app-playground-usage",
   template: `
-    <ul class="list-disc">
+    <ul class="list-disc mb-4">
       <li>
         Use
         <a

@@ -1,5 +1,7 @@
-/*! purgecss start ignore */
 :host {
-  @apply block h-screen w-screen;
+  @apply flex flex-col w-screen h-screen;
 }
-/*! purgecss end ignore */
+
+.playground-container {
+  @apply grid col-gap-4 grid-cols-1 p-4;
+}

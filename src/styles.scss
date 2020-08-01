@@ -5,6 +5,7 @@
 @import "tailwindcss/utilities";
 
 body {
+  @apply overflow-hidden;
   background-color: var(--background-color);
   color: var(--text-color);
 }

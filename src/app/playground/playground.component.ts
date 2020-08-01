@@ -10,10 +10,10 @@ import { RegexOutputService } from "../services/regex-output.service";
 @Component({
   selector: "app-playground",
   template: `
-    <div class="flex flex-col h-full">
-      <app-playground-nav></app-playground-nav>
+    <app-playground-nav></app-playground-nav>
+    <div class="flex flex-grow overflow-hidden">
       <div
-        class="flex-auto grid h-full col-gap-4 grid-cols-1 lg:grid-cols-5 p-4"
+        class="playground-container lg:grid-cols-5 lg:overflow-hidden"
       >
         <aside class="col-auto lg:col-span-1 pl-4">
           <app-playground-usage></app-playground-usage>
@@ -30,8 +30,8 @@ import { RegexOutputService } from "../services/regex-output.service";
           ></app-playground-result>
         </section>
       </div>
-      <app-playground-footer></app-playground-footer>
     </div>
+    <app-playground-footer></app-playground-footer>
   `,
   styleUrls: ["./playground.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,9 +44,9 @@ export class PlaygroundComponent implements OnInit, OnDestroy {
   constructor(
     private readonly regexOutputService: RegexOutputService,
     private readonly ngZone: NgZone
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onExecute() {
     const trimmedValue = PlaygroundComponent.trimComments(
