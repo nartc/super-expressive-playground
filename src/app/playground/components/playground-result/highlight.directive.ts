@@ -3,6 +3,27 @@ import { Subscription } from "rxjs";
 import { filter, take } from "rxjs/operators";
 import { RegexOutputService } from "../../../services/regex-output.service";
 
+/**
+ * From https://github.com/IonicaBizau/regex-parser.js/blob/master/lib/index.js
+ * @param regexOutput {string}
+ */
+function parseRegex(regexOutput: string): RegExp {
+  if (typeof regexOutput !== "string") {
+    throw new Error("Invalid input. Input must be a string");
+  }
+
+  // Parse input
+  const m = regexOutput.match(/(\/?)(.+)\1([a-z]*)/i);
+
+  // Invalid flags
+  if (m[3] && !/^(?!.*?(.).*?\1)[gmixXsuUAJ]+$/.test(m[3])) {
+    return RegExp(regexOutput);
+  }
+
+  // Create the regular expression
+  return new RegExp(m[2], m[3]);
+}
+
 @Directive({
   selector: "div[appHighlight]",
 })
@@ -30,7 +51,7 @@ export class HighlightDirective implements OnDestroy {
     if (!!this.currentTestString) {
       let _temp = this.currentTestString.replace(/\n$/g, "\n\n");
       if (typeof regexOutput === "string") {
-        regexOutput = new RegExp(regexOutput);
+        regexOutput = parseRegex(regexOutput);
       }
       this.el.nativeElement.innerHTML = _temp.replace(
         regexOutput,
