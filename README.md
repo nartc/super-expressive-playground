@@ -18,8 +18,8 @@ This is the playground for [SuperExpressive Library](https://github.com/francisr
   - [Contribution](#contribution)
   - [Credit](#credit)
   - [License](#license)
-    </p>
-  </details>
+  </p>
+</details>
 
 ## Working application
 
@@ -33,7 +33,7 @@ Check out the **working app** -> https://sepg.netlify.app/
 - Test the generated RegExp
 
 - [x] Mobile friendly - [@trungk18][trung]
-- [ ] ...
+- [ ] Automatic execution
 
 ## Technologies
 
