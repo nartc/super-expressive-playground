@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       <div class="flex-1 flex items-center">
         <a
           target="_blank"
+          rel="noopener"
           href="https://github.com/francisrstokes/super-expressive"
         >
           <img
@@ -22,6 +23,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
       <a
         class="flex-none"
         href="https://github.com/nartc/super-expressive-playground"
+        rel="noopener"
         target="_blank"
       >
         <img

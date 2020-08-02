@@ -16,7 +16,13 @@ import {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
+        aria-labelledby="editorLoadingTitle editorLoadingDesc"
+        role="img"
       >
+        <title id="editorLoadingTitle">A purple loading spinner</title>
+        <desc id="editorLoadingDesc">
+          Loading spinner for waiting on the Editor to load
+        </desc>
         <circle
           class="opacity-25"
           cx="12"

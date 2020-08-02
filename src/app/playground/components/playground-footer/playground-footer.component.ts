@@ -11,6 +11,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
         <a
           class="text-primary hover:underline"
           target="_blank"
+          rel="noopener"
           href="https://github.com/francisrstokes/super-expressive"
         >
           SuperExpressive
@@ -22,6 +23,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
         <a
           class="text-primary hover:underline"
           target="_blank"
+          rel="noopener"
           href="https://angular.io"
         >
           Angular
@@ -30,6 +32,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
         <a
           class="text-primary hover:underline"
           target="_blank"
+          rel="noopener"
           href="https://scully.io"
         >
           Scully
