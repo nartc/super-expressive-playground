@@ -4,6 +4,7 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
+  HostBinding,
 } from "@angular/core";
 import { RegexOutputService } from "../services/regex-output.service";
 
@@ -12,9 +13,7 @@ import { RegexOutputService } from "../services/regex-output.service";
   template: `
     <app-playground-nav></app-playground-nav>
     <div class="flex flex-grow overflow-hidden">
-      <div
-        class="playground-container lg:grid-cols-5 lg:overflow-hidden"
-      >
+      <div class="grid col-gap-4 grid-cols-1 p-4 lg:grid-cols-5 lg:overflow-hidden">
         <aside class="col-auto lg:col-span-1 pl-4">
           <app-playground-usage></app-playground-usage>
         </aside>
@@ -33,10 +32,11 @@ import { RegexOutputService } from "../services/regex-output.service";
     </div>
     <app-playground-footer></app-playground-footer>
   `,
-  styleUrls: ["./playground.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaygroundComponent implements OnInit, OnDestroy {
+  @HostBinding("class") hostClasses = "flex flex-col w-screen h-screen";
+  
   editor: monaco.editor.IStandaloneCodeEditor;
   output$ = this.regexOutputService.output$;
   private executeAction: monaco.IDisposable;
