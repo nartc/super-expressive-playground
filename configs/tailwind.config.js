@@ -26,24 +26,15 @@ module.exports = {
       spacing: {
         "2-rev": `-${spacing["2"]}`,
       },
-      boxShadow: {
-        common: "var(--shadow)",
-      },
-      maxWidth: {
-        "32": "8rem",
-      },
       colors: {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
       },
-      gridRow: {
-        "span-11": "span 11 / span 11",
-      },
-      gridTemplateRows: {
-        "12": "repeat(12, minmax(0, 1fr))",
+      flexGrow: {
+        "11": 11,
       },
       zIndex: {
-        "-1": "-1",
+        "-1": -1,
       },
     },
   },
