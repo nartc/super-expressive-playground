@@ -47,7 +47,7 @@
     "postcss-scss": "2.1.1",
     "prettier": "2.0.5",
     "scully-plugin-minify-html": "3.1.2",
-    "tailwindcss": "1.6.0",
+    "tailwindcss": "1.6.2",
     "ts-node": "8.10.2",
     "tslint": "6.1.3",
     "typescript": "3.9.7"
